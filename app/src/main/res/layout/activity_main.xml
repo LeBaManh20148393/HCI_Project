@@ -34,4 +34,13 @@
         android:layout_marginTop="196dp"
         android:text="Quản Lý Cây" />
 
+    <Button
+        android:id="@+id/btnNV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="178dp"
+        android:text="Nhân Viên" />
+
 </RelativeLayout>

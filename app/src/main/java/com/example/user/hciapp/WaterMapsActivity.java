@@ -107,23 +107,7 @@ public class WaterMapsActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void backTreeMap() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Thông báo");
-        builder.setMessage("Bạn có muốn tiếp tục tưới cây ?");
-        builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
-        builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Intent intent = new Intent(WaterMapsActivity.this,TreeMapsActivity.class);
-                startActivity(intent);
-            }
-        });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+        Intent intent = new Intent(WaterMapsActivity.this,TreeMapsActivity.class);
+        startActivity(intent);
     }
 }

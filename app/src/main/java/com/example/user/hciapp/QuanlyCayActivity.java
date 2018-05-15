@@ -1,5 +1,7 @@
 package com.example.user.hciapp;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,22 +20,27 @@ public class QuanlyCayActivity extends AppCompatActivity {
     EditText IDcay,TenCayql;
     TextView Tinhtrangql,Luongnuocql;
     Button Them;
+    int position;
     ArrayList<DanhSachCay> mangCay;
+    CayAdapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quanly_cay);
         addView();
-        final CayAdapter adapter = new CayAdapter(
+         adapter = new CayAdapter(
                 QuanlyCayActivity.this,R.layout.cay,mangCay
         );
         Lvcay.setAdapter(adapter);
+
+
         Lvcay.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                mangCay.remove(i);
-                adapter.notifyDataSetChanged();
+                position = i;
+               xulixoacay();
                 return false;
 
             }
@@ -55,6 +62,27 @@ public class QuanlyCayActivity extends AppCompatActivity {
 
     }
 
+    private void xulixoacay() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Xóa cây");
+        builder.setMessage("Bạn có chắc chắn xóa cây ?");
+        builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                mangCay.remove(position);
+                adapter.notifyDataSetChanged();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
     private void clean() {
         IDcay.setText("");
         TenCayql.setText("");
@@ -62,7 +90,8 @@ public class QuanlyCayActivity extends AppCompatActivity {
 
     }
 
-    private void addView() {
+    private void
+    addView() {
         Lvcay = (ListView)findViewById(R.id.lvDanhsachCay);
         IDcay = (EditText)findViewById(R.id.edID);
         TenCayql = (EditText)findViewById(R.id.edtenCay);

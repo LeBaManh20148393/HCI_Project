@@ -19,7 +19,8 @@
         <activity android:name=".TreeMapsActivity" />
         <activity android:name=".WaterMapsActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".QuanlyCayActivity"></activity>
+        <activity android:name=".QuanlyCayActivity" />
+        <activity android:name=".QLNhanvienActivity"></activity>
     </application>
 
 </manifest>
