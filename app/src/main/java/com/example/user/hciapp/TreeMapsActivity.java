@@ -18,6 +18,10 @@ public class TreeMapsActivity extends AppCompatActivity implements View.OnClickL
     int idcay =0;
     int binhnuoc = 3000;
     Button TuoiCay;
+    boolean cay1 = false;
+    boolean cay2 = false;
+    boolean cay3 = false;
+    boolean cay4 = false;
     ArrayList<DanhSachCay> arrayDsCay;
 
     @Override
@@ -67,26 +71,48 @@ public class TreeMapsActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         int id = view.getId();
         if(id == R.id.tv_cay1){
+            if( cay1 == false){
+                Trangthai.setText(arrayDsCay.get(0).getTinhtrang());
+                TenCay.setText(arrayDsCay.get(0).getTencay());
+                LuongNuoc.setText("Lượng nước cần: "+arrayDsCay.get(0).getLuongnuoc());
+            }else {
+                Trangthai.setText("Đủ nước");
+                LuongNuoc.setText("Lượng nước cần: 0");
+            }
 
-            TenCay.setText(arrayDsCay.get(0).getTencay());
-            Trangthai.setText(arrayDsCay.get(0).getTinhtrang());
-            LuongNuoc.setText("Lượng nước cần: "+arrayDsCay.get(0).getLuongnuoc());
             idcay =1;
         }else if(id == R.id.tv_cay2){
             idcay = 2;
-            TenCay.setText(arrayDsCay.get(1).getTencay());
-            Trangthai.setText(arrayDsCay.get(1).getTinhtrang());
-            LuongNuoc.setText("Lượng nước cần: "+arrayDsCay.get(1).getLuongnuoc());
+            if (cay2 == false){
+                TenCay.setText(arrayDsCay.get(1).getTencay());
+                Trangthai.setText(arrayDsCay.get(1).getTinhtrang());
+                LuongNuoc.setText("Lượng nước cần: "+arrayDsCay.get(1).getLuongnuoc());
+            }else {
+                Trangthai.setText("Đủ nước");
+                LuongNuoc.setText("Lượng nước cần: 0");
+            }
+
         }else if(id == R.id.tv_cay3){
             idcay = 3;
-            TenCay.setText(arrayDsCay.get(2).getTencay());
-            Trangthai.setText(arrayDsCay.get(2).getTinhtrang());
-            LuongNuoc.setText("Lượng nước cần: "+arrayDsCay.get(2).getLuongnuoc());
+            if(cay3 == false){
+                TenCay.setText(arrayDsCay.get(2).getTencay());
+                Trangthai.setText(arrayDsCay.get(2).getTinhtrang());
+                LuongNuoc.setText("Lượng nước cần: "+arrayDsCay.get(2).getLuongnuoc());
+            }else {
+                Trangthai.setText("Đủ nước");
+                LuongNuoc.setText("Lượng nước cần: 0");
+            }
         }else if (id == R.id.tv_cay4){
             idcay =4;
-            TenCay.setText(arrayDsCay.get(3).getTencay());
-            Trangthai.setText(arrayDsCay.get(3).getTinhtrang());
-            LuongNuoc.setText("Lượng nước cần: "+arrayDsCay.get(3).getLuongnuoc());
+            if (cay4 == false){
+                TenCay.setText(arrayDsCay.get(3).getTencay());
+                Trangthai.setText(arrayDsCay.get(3).getTinhtrang());
+                LuongNuoc.setText("Lượng nước cần: "+arrayDsCay.get(3).getLuongnuoc());
+            }else {
+                Trangthai.setText("Đủ nước");
+                LuongNuoc.setText("Lượng nước cần: 0");
+            }
+
         }else if(id == R.id.btnTuoi){
             if (binhnuoc >1500){
                 xulituoicay();
@@ -128,38 +154,52 @@ public class TreeMapsActivity extends AppCompatActivity implements View.OnClickL
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 if(idcay == 1 ){
-                    binhnuoc = binhnuoc - arrayDsCay.get(0).getLuongnuoc();
-                    Luongnuocconlai.setText("Lượng nước còn lại trong bình: "+binhnuoc);
-                    arrayDsCay.remove(0);
-                    arrayDsCay.add(new DanhSachCay(1,"Cây số 1","Đủ nước",3000));
-                    TenCay.setText(arrayDsCay.get(3).getTencay());
-                    Trangthai.setText(arrayDsCay.get(3).getTinhtrang());
-                    LuongNuoc.setText("Lượng nước: "+arrayDsCay.get(3).getLuongnuoc());
+                    if (cay1 == false){
+                        binhnuoc = binhnuoc - arrayDsCay.get(0).getLuongnuoc();
+                        Luongnuocconlai.setText("Lượng nước còn lại trong bình: "+binhnuoc);
+                        //arrayDsCay.remove(0);
+                        //arrayDsCay.add(new DanhSachCay(1,"Cây số 1","Đủ nước",3000));
+                        TenCay.setText(arrayDsCay.get(0).getTencay());
+                        Trangthai.setText("Đủ nước");
+                        LuongNuoc.setText("Lượng nước cần: 0");
+                        cay1 = true;
+                    }
+
 
                 }else if (idcay == 2 ){
-                    binhnuoc = binhnuoc - arrayDsCay.get(0).getLuongnuoc();
-                    Luongnuocconlai.setText("Lượng nước còn lại trong bình: "+binhnuoc);
-                    arrayDsCay.remove(0);
-                    arrayDsCay.add(new DanhSachCay(1,"Cây số 2","Đủ nước",3000));
-                    TenCay.setText(arrayDsCay.get(3).getTencay());
-                    Trangthai.setText(arrayDsCay.get(3).getTinhtrang());
-                    LuongNuoc.setText("Lượng nước: "+arrayDsCay.get(3).getLuongnuoc());
+                    if (cay2 == false){
+                        binhnuoc = binhnuoc - arrayDsCay.get(1).getLuongnuoc();
+                        Luongnuocconlai.setText("Lượng nước còn lại trong bình: "+binhnuoc);
+                        //arrayDsCay.remove(0);
+                        //arrayDsCay.add(new DanhSachCay(1,"Cây số 2","Đủ nước",3000));
+                        TenCay.setText(arrayDsCay.get(1).getTencay());
+                        Trangthai.setText("Đủ nước");
+                        LuongNuoc.setText("Lượng nước cần: 0");
+                        cay2 = true;
+                    }
+
                 } else if (idcay == 3){
-                    binhnuoc = binhnuoc - arrayDsCay.get(0).getLuongnuoc();
-                    Luongnuocconlai.setText("Lượng nước còn lại trong bình: "+binhnuoc);
-                    arrayDsCay.remove(0);
-                    arrayDsCay.add(new DanhSachCay(1,"Cây số 3","Đủ nước",3000));
-                    TenCay.setText(arrayDsCay.get(3).getTencay());
-                    Trangthai.setText(arrayDsCay.get(3).getTinhtrang());
-                    LuongNuoc.setText("Lượng nước: "+arrayDsCay.get(3).getLuongnuoc());
+                    if(cay3 == false){
+                        binhnuoc = binhnuoc - arrayDsCay.get(2).getLuongnuoc();
+                        Luongnuocconlai.setText("Lượng nước còn lại trong bình: "+binhnuoc);
+                        //arrayDsCay.remove(0);
+                        //arrayDsCay.add(new DanhSachCay(1,"Cây số 2","Đủ nước",3000));
+                        TenCay.setText(arrayDsCay.get(2).getTencay());
+                        Trangthai.setText("Đủ nước");
+                        LuongNuoc.setText("Lượng nước cần: 0");
+                        cay3 = true;
+                    }
                 }else if (idcay==4){
-                    binhnuoc = binhnuoc - arrayDsCay.get(0).getLuongnuoc();
-                    Luongnuocconlai.setText("Lượng nước còn lại trong bình: "+binhnuoc);
-                    arrayDsCay.remove(0);
-                    arrayDsCay.add(new DanhSachCay(1,"Cây số 4","Đủ nước",3000));
-                    TenCay.setText(arrayDsCay.get(3).getTencay());
-                    Trangthai.setText(arrayDsCay.get(3).getTinhtrang());
-                    LuongNuoc.setText("Lượng nước: "+arrayDsCay.get(3).getLuongnuoc());
+                    if(cay4 == false){
+                        binhnuoc = binhnuoc - arrayDsCay.get(3).getLuongnuoc();
+                        Luongnuocconlai.setText("Lượng nước còn lại trong bình: "+binhnuoc);
+                        //arrayDsCay.remove(0);
+                        //arrayDsCay.add(new DanhSachCay(1,"Cây số 2","Đủ nước",3000));
+                        TenCay.setText(arrayDsCay.get(3).getTencay());
+                        Trangthai.setText("Đủ nước");
+                        LuongNuoc.setText("Lượng nước cần: 0");
+                        cay4 = true;
+                    }
                 }
             }
         });
