@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TreeMapsActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl1">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:id="@+id/iv_map"
+            android:src="@drawable/venue"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_cay1"
+            android:layout_marginTop="235dp"
+            android:layout_marginLeft="120dp"
+            android:textColor="#0000DD"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_cay2"
+            android:textColor="#0000DD"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="240dp"
+            android:layout_marginTop="230dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_cay3"
+            android:textColor="#0000DD"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="180dp"
+            android:layout_marginTop="120dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_cay4"
+            android:textColor="#0000DD"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="190dp"
+            android:layout_marginTop="50dp"
+            />
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/rl1"
+        android:layout_marginTop="20dp"
+        android:id="@+id/ll_2">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_tencay"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvTrangthai"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvLuongnuoc"/>
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_2">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnTuoi"
+            android:text="Tưới cây"
+            android:layout_marginLeft="140dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnTuoi"
+            android:id="@+id/tv_lươngnuocconlai"
+            android:text="Lượng nước trong bình: 3000"
+            android:gravity="center"
+            />
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
