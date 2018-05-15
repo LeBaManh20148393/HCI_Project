@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    private Button Mapcay, Mapnuoc;
+    private Button Mapcay, Mapnuoc, QLCay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private void addView() {
         Mapcay = (Button)findViewById(R.id.btn_caymaps);
         Mapnuoc = (Button)findViewById(R.id.btn_nuocmaps);
+        QLCay = (Button)findViewById(R.id.btnQuanlyCay);
         Mapcay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -30,6 +31,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,WaterMapsActivity.class);
+                startActivity(intent);
+            }
+        });
+        QLCay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,QuanlyCayActivity.class);
                 startActivity(intent);
             }
         });
